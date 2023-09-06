@@ -1,10 +1,5 @@
-import { Button, Header } from 'ui';
+import PageFile from '../components/page-file';
 
 export default function Page(): JSX.Element {
-  return (
-    <>
-      <Header text="Docs" />
-      <Button />
-    </>
-  );
+  return <PageFile route="App" />;
 }

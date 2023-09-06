@@ -11,4 +11,42 @@
 |         | [Optimizations](/docs/app/building-your-application/optimizing)          | Image, Fonts, and Script Optimizations to improve your application's Core Web Vitals and User Experience.                                                                                        |
 |         | [TypeScript](/docs/app/building-your-application/configuring/typescript) | Improved support for TypeScript, with better type checking and more efficient compilation, as well as custom TypeScript Plugin and type checker.                                                 |
 
+### Terminology
+
+The skeleton of every application is routing. The **fundamental concepts** of routing will be explained ahead.
+
+```
+
+├── app
+└── dashboard
+    ├── analytics
+    ├── settings
+        ├── password
+        ├── profile
+    └── blog
+        ├── [slug]
+
+```
+
+- **Tree**: Encompasses the component tree of the application. The root entry ( app ) and the last leaf ( [slug] )
+- **Subtree**: Encompasses part of a **Tree**, starting at a root (dashboard , blog) and ending with its leaves
+- **Root**: The first node in a **Tree** or **Subtree**. (app , dashboard , blog)
+- **Leaf**: Nodes in a **Subtree** that have no children. (analytics , password , profile , [slug])
+
+### Component Hierarchy
+
+```jsx
+<Layout>
+  <Template>
+    <ErrorBoundary fallback={<Error />}>
+      <Suspense fallback={<Loading />}>
+        <ErrorBoundary fallback={<Error />}>
+          <Page />
+        </ErrorBoundary>
+      </Suspense>
+    </ErrorBoundary>
+  </Template>
+</Layout>
+```
+
 [![Conventional Commit Friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
